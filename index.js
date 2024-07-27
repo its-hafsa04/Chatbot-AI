@@ -1,3 +1,3 @@
-const ChatAssistant = require('./lib/assistant');
+const ChatAssistant = require('./library/assistant');
 
 module.exports = ChatAssistant;
