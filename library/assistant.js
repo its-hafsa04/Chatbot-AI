@@ -1,6 +1,8 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import "dotenv/config";
 
-const genAI = new GoogleGenerativeAI(AIzaSyAgG00D7Uji05MmrNvy-ozN9l3t6GGkZTI);
+const API = process.env.API_KEY;
+const genAI = new GoogleGenerativeAI(API);
 
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
@@ -24,11 +26,10 @@ async function generate(prompt, userQuery) {
 
 // Exported module to handle chat messages
 export default class ChatAssistant {
-
   async sendMessage(message) {
     try {
       const prompt = "Your prompt here"; // Replace with your desired prompt
-      console.log(message)
+      console.log(message);
       const responseText = await generate(prompt, message);
       return responseText;
     } catch (error) {
@@ -36,4 +37,4 @@ export default class ChatAssistant {
       throw error;
     }
   }
-};
+}
