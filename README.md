@@ -16,6 +16,19 @@ Install the package using npm:
 npm install ai-customer-assistant
 ```
 
+## Setup
+
+Before using the package, you need to set up your Gemini API key:
+
+1. Create a `.env` file in your project's root directory.
+2. Add your Gemini API key to the `.env` file:
+
+```
+API_KEY=your_api_key_here
+```
+
+Make sure to replace `your_api_key_here` with your actual Gemini API key.
+
 ## Usage
 
 ### ES Module
