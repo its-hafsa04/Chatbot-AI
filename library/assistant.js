@@ -1,26 +1,39 @@
-import axios from "axios";
-import "dotenv/config";
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
-export default class ChatAssistant {
-  constructor() {
-    this.apiKey = process.env.API_KEY;
-    this.apiEndpoint = "https://api.google.com/gemini/v1/chat"; // Replace with actual endpoint
+const genAI = new GoogleGenerativeAI(AIzaSyAgG00D7Uji05MmrNvy-ozN9l3t6GGkZTI);
+
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+async function generate(prompt, userQuery) {
+  try {
+    // Prepend the prompt to the user's query
+    const fullQuery = `${prompt} ${userQuery}`;
+
+    // Get the response from the AI model
+    const result = await model.generateContent(fullQuery);
+    const response = await result.response;
+    const text = await response.text();
+
+    // Return the AI's response
+    return text;
+  } catch (error) {
+    console.error("Error generating content:", error);
+    throw error;
   }
+}
+
+// Exported module to handle chat messages
+export default class ChatAssistant {
 
   async sendMessage(message) {
     try {
-      const response = await axios.post(this.apiEndpoint, {
-        message,
-        key: this.apiKey,
-      });
-      return response.data;
+      const prompt = "Your prompt here"; // Replace with your desired prompt
+      console.log(message)
+      const responseText = await generate(prompt, message);
+      return responseText;
     } catch (error) {
       console.error("Error sending message:", error);
       throw error;
     }
   }
-
-  async receiveMessage() {
-    // Implement according to Gemini API documentation
-  }
-}
+};

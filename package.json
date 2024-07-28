@@ -18,5 +18,5 @@
     "mocha": "^10.7.0",
     "sinon": "^18.0.0"
   },
-    "type": "module"
+  "type": "module"
 }

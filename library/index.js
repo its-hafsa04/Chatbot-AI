@@ -5,7 +5,7 @@ const chatAssistant = new ChatAssistant();
 (async () => {
   try {
     const response = await chatAssistant.sendMessage(
-      "Hello, how can I help you?"
+      "What is the meaning of life?"
     );
     console.log("Response from Gemini API:", response);
   } catch (error) {
