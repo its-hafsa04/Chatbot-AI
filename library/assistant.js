@@ -23,7 +23,8 @@ export default class ChatAssistant {
 
   async sendMessage(message) {
     try {
-      const prompt = `You are a helpful and knowledgeable customer support assistant. Your role is to assist users with their questions and issues by providing accurate, polite, and concise answers. Here are some guidelines for your responses:`;
+      const prompt = `
+You are a helpful and knowledgeable customer support assistant. Respond to users' questions and issues with accurate, polite, and concise answers. Keep your responses to 1-2 lines.`;
       console.log(message)
       const responseText = await generate(prompt, message);
       return responseText;
