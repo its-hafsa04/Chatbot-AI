@@ -13,8 +13,8 @@ async function generate(prompt, userQuery) {
 
     // Get the response from the AI model
     const result = await model.generateContent(fullQuery);
-    const response = await result.response;
-    const text = await response.text();
+    const response = result.response;
+    const text = response.text();
 
     // Return the AI's response
     return text;
@@ -28,7 +28,7 @@ async function generate(prompt, userQuery) {
 export default class ChatAssistant {
   async sendMessage(message) {
     try {
-      const prompt = "Your prompt here"; // Replace with your desired prompt
+      const prompt = `You are a helpful and knowledgeable customer support assistant. Respond to users' questions and issues with accurate, polite, and concise answers. Keep your responses to 1-2 lines.`;
       console.log(message);
       const responseText = await generate(prompt, message);
       return responseText;
