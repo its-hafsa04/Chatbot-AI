@@ -1,9 +1,8 @@
-# Chatbot-AI
+# Chat Assistant
 
-`Chatbot-AI` is an NPM package that integrates an AI-powered chat assistant into any web application.
+A Node.js package for integrating with the Google Gemini API for chat functionalities.
 
 ## Installation
 
-```sh
-npm install Chatbot-AI
-
+```bash
+npm install chat-assistant

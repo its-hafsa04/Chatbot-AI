@@ -1,15 +1,15 @@
 {
   "name": "chat-assistant",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple chat assistant package.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.16.0",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5"
   },
@@ -17,5 +17,6 @@
     "chai": "^5.1.1",
     "mocha": "^10.7.0",
     "sinon": "^18.0.0"
-  }
+  },
+    "type": "module"
 }

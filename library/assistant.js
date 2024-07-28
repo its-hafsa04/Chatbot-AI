@@ -1,31 +1,26 @@
-const axios = require('axios');
-require('dotenv').config();
+import axios from "axios";
+import "dotenv/config";
 
-class ChatAssistant {
-  constructor(apiKey) {
-    this.apiKey = apiKey || process.env.API_KEY;
-    this.apiBaseUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+export default class ChatAssistant {
+  constructor() {
+    this.apiKey = process.env.API_KEY;
+    this.apiEndpoint = "https://api.google.com/gemini/v1/chat"; // Replace with actual endpoint
   }
 
-  async getResponse(message) {
+  async sendMessage(message) {
     try {
-      const response = await axios.post(this.apiBaseUrl, {
-        prompt: message,
-        max_tokens: 150,
-        n: 1,
-        stop: ['\n'],
-        temperature: 0.9,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.apiKey}`,
-        },
+      const response = await axios.post(this.apiEndpoint, {
+        message,
+        key: this.apiKey,
       });
-      return response.data.choices[0].text.trim();
+      return response.data;
     } catch (error) {
-      throw new Error(`Error getting response: ${error.message}`);
+      console.error("Error sending message:", error);
+      throw error;
     }
   }
-}
 
-module.exports = ChatAssistant;
+  async receiveMessage() {
+    // Implement according to Gemini API documentation
+  }
+}
