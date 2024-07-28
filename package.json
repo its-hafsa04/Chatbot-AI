@@ -1,8 +1,8 @@
 {
-  "name": "chat-assistant",
+  "name": "ai-customer-assistant",
   "version": "1.0.0",
   "description": "A simple chat assistant package.",
-  "main": "index.js",
+  "main": "library/index.js",
   "scripts": {
     "test": "mocha"
   },
